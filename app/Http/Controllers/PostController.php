@@ -14,7 +14,6 @@ class PostController extends Controller
      */
     public function index()
     {
-        // $posts = auth('web')->user()->posts()->paginate(10);
         $posts = Post::where('user_id', Auth::user()->id)->paginate(10);
         return response()->json([
             'status' => true,
